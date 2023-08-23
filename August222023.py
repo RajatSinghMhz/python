@@ -40,6 +40,12 @@ graceMarksSeries=pd.Series(graceMarks)
 # newArray=np.array(testMarkSeries)
 # print(newArray[newArray>40])
 dataFrame=pd.DataFrame({'Day':dobDaySeries,'Month':dobMonthSeries,'Year':dobYearSeries,"Full Date":dobYearSeries+"/"+dobMonthSeries+"/"+dobDaySeries,'Marks Obtained':marksSeries,'Grace Marks':graceMarksSeries,'Total Marks':marksSeries+graceMarksSeries})
-dataFrame['Result']=dataFrame['Total Marks']>40
+# dataFrame['Result']=dataFrame['Total Marks']>40
+def passFailFunction(value):
+    if (value>40):
+     return "Pass"
+    else:
+     return "Fail"
+dataFrame['Result']=dataFrame['Total Marks'].apply(lambda x: passFailFunction(x))
 print(dataFrame)
 dataFrame.to_csv('August222023Export.csv',index=False)
