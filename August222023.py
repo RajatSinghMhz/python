@@ -46,6 +46,9 @@ def passFailFunction(value):
      return "Pass"
     else:
      return "Fail"
-dataFrame['Result']=dataFrame['Total Marks'].apply(lambda x: passFailFunction(x))
+newArray=pd.Series(map(lambda x: passFailFunction(x),dataFrame['Total Marks']))
+newArray.index=graceMarksSeries.index
+dataFrame['Result']=newArray
+# dataFrame[')Result']=dataFrame['Total Marks'].apply(lambda x: passFailFunction(x))
 print(dataFrame)
 dataFrame.to_csv('August222023Export.csv',index=False)
