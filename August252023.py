@@ -1,0 +1,36 @@
+import pandas as pd
+import numpy as np
+users=pd.read_csv("https://raw.githubusercontent.com/justmarkham/DAT8/master/data/u.user",sep='|')
+print(users)
+print('\n-----First 25 entries-------------\n')
+print(users.head(25))
+print('\n-----Last 10 entries-------------\n')
+print(users.tail(10))
+print('\n--------No of observations---------\n')
+print(users.shape[0])
+print('\n---------No of columns in dataset----\n')
+print(users.shape[1])
+print('\n---------Columns----\n')
+print(users.columns)
+print('\n---------Index of columns---\n')
+print(users.index)
+print('\n---------Datatype----\n')
+print(users.dtypes)
+print('\n---------Occupation column----\n')
+print(users['occupation'])
+print('\n---------How many different occupation in dataset----\n')
+print(users['occupation'].nunique())
+print('\n---------Most frequent occupation----\n')
+print(users['occupation'].value_counts().head(1).index[0])
+print('\n---------Summarize all columns----\n')
+print(users['occupation'].describe(include='all'))
+print('\n---------Summarize only occupation column----\n')
+print(users['occupation'].describe())
+print('\n---------Mean age of users---\n')
+print(users['age'].mean())
+print('\n--------Age with least occurence----\n')
+print(users['age'].tail(1).index[0])
+
+
+
+
